@@ -9,7 +9,18 @@
     <head>
         <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
     </head>
-    <body>
+    <body ng-controller="StoreController as store">
+        <div ng-repeat="product in store.products">
+            <h1>{{product.name}}</h1>
+            <h2>£{{product.price}}</h2>
+            <p>{{product.description}}</p>
+            <button ng-show="product.canPurchase">Add to Cart</button>
+            <!--
+                * Button above is saying only show if the expression
+                * Is set to True
+                * Currently in app.js it is set to false
+            -->
+        </div>
         <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="/app.js"></script>
         <p>{{"hello" + " you"}}</p>
